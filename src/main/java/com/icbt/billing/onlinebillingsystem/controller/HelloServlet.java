@@ -1,4 +1,4 @@
-package com.icbt.billing.onlinebillingsystem;
+package com.icbt.billing.onlinebillingsystem.controller;
 
 import java.io.*;
 
