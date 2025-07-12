@@ -1,0 +1,99 @@
+:root{
+    /* Base colors */
+    --base-0: #ffffff;
+    --base-1000: #000000;
+    /* Neutral colors */
+    --neutral-950: #04070d;
+    --neutral-900: #0e141f;
+    --neutral-800: #1e2533;
+    --neutral-700: #323b49;
+    --neutral-600: #4b5563;
+    --neutral-500: #6d7986;
+    --neutral-400: #9ca7b2;
+    --neutral-300: #c6cfd7;
+    --neutral-200: #e0e8ee;
+    --neutral-100: #eff4f7;
+    --neutral-70: #F3F3F3;
+    --neutral-50: #f7fafb;
+
+    /* Primary colors */
+    --primary-950: #331709;
+    --primary-900: #633012;
+    --primary-800: #8b4219;
+    --primary-700: #ae5a21;
+    --primary-600: #c6722d;
+    --primary-500: #da8f3e;
+    --primary-400: #e6a858;
+    --primary-300: #eec683;
+    --primary-200: #f5ddb3;
+    --primary-100: #faf0da;
+    --primary-50: #fdf9ef;
+
+    /* Secondary colors */
+    --secondary-950: #3b0764;
+    --secondary-900: #581c87;
+    --secondary-800: #6b21a8;
+    --secondary-700: #6f14be;
+    --secondary-600: #7e22ce;
+    --secondary-500: #a855f7;
+    --secondary-400: #c084fc;
+    --secondary-300: #d8b4fe;
+    --secondary-200: #e9d5ff;
+    --secondary-100: #f3e8ff;
+    --secondary-50: #faf5ff;
+
+    /* Warning colors */
+    --warning-950: #392e08;
+    --warning-900: #644d10;
+    --warning-800: #8a6d18;
+    --warning-700: #ac8221;
+    --warning-600: #c99b2b;
+    --warning-500: #ddad37;
+    --warning-400: #eabf4b;
+    --warning-300: #f3d166;
+    --warning-200: #f8e092;
+    --warning-100: #fbf0ca;
+    --warning-50: #fefaec;
+
+    /* Negative colors */
+    --negative-950: #400d0d;
+    --negative-900: #6f1717;
+    --negative-800: #962020;
+    --negative-700: #b72b2b;
+    --negative-600: #d33d3d;
+    --negative-500: #e85757;
+    --negative-400: #f37a7a;
+    --negative-300: #f9b0a8;
+    --negative-200: #fcd1cc;
+    --negative-100: #fde6e3;
+    --negative-50: #fef3f2;
+
+    /* Positive colors */
+    --positive-950: #012921;
+    --positive-900: #034839;
+    --positive-800: #05624b;
+    --positive-700: #087e60;
+    --positive-600: #0e9a74;
+    --positive-500: #1cb789;
+    --positive-400: #38d09e;
+    --positive-300: #69e5b9;
+    --positive-200: #a4f3d1;
+    --positive-100: #cffae6;
+    --positive-50: #ecfdf6;
+
+    /* Informative colors */
+    --informative-950: #0e1840;
+    --informative-900: #1c3070;
+    --informative-800: #263d93;
+    --informative-700: #2f4db0;
+    --informative-600: #3b63c8;
+    --informative-500: #5181da;
+    --informative-400: #73a4e7;
+    --informative-300: #a0c4f0;
+    --informative-200: #c7dbf6;
+    --informative-100: #dfeafa;
+    --informative-50: #f1f6fd;
+
+
+
+}

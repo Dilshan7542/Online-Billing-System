@@ -1,9 +1,11 @@
 package com.icbt.billing.onlinebillingsystem.repo.custom.impl;
 
-import lk.ijse.hardware.dao.custom.ItemDAO;
-import lk.ijse.hardware.entity.Item;
-import lk.ijse.hardware.util.CreateNewId;
-import lk.ijse.hardware.util.CrudUtil;
+
+
+import com.icbt.billing.onlinebillingsystem.entity.Item;
+import com.icbt.billing.onlinebillingsystem.repo.custom.ItemDAO;
+import com.icbt.billing.onlinebillingsystem.repo.util.CreateNewID;
+import com.icbt.billing.onlinebillingsystem.repo.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,35 +18,27 @@ public class ItemDAOImpl implements ItemDAO {
     @Override
     public boolean save(Item entity) throws SQLException {
         return CrudUtil.execute("INSERT INTO item VALUES(?,?,?,?,?,?,?,?,?,?)",
-                entity.getItemCode(),
-                entity.getDescription(),
-                entity.getRemind(),
-                entity.getUtilPrice(),
-                entity.isStatus(),
-                entity.getCategoryId(),
-                entity.getDate(),
-                entity.getRecode(),
-                entity.getQty(),
-                entity.getDiscount());
+                entity.getItemId(),
+                entity.getItemName(),
+                entity.getPricePerUnit()
+               );
     }
 
     @Override
     public boolean update(Item entity) throws SQLException {
         return CrudUtil.execute("UPDATE item SET categoryId=?,description=?,remind=?,utilPrice=?,status=? WHERE itemCode=?",
-                entity.getCategoryId(),
-                entity.getDescription(),
-                entity.getRemind(),
-                entity.getUtilPrice(),
-                entity.isStatus(),
-                entity.getItemCode()
+                entity.getItemId(),
+                entity.getItemName(),
+                entity.getPricePerUnit()
 
         );
     }
 
     @Override
-    public boolean delete(String s) throws SQLException {
+    public boolean delete(Integer integer) throws SQLException {
         return false;
     }
+
 
     @Override
     public List<Item> getAll() throws SQLException {
@@ -52,64 +46,27 @@ public class ItemDAOImpl implements ItemDAO {
         ArrayList<Item> list = new ArrayList<>();
         while (rst.next()) {
             list.add(new Item(
-                    rst.getString("itemCode"),
+                    rst.getInt("itemCode"),
                     rst.getString("description"),
-                    rst.getInt("remind"),
-                    rst.getDouble("utilPrice"),
-                    rst.getBoolean("status"),
-                    rst.getString("categoryId"),
-                    rst.getDate("date"),
-                    rst.getInt("recode"),
-                    rst.getInt("qty"),
-                    rst.getInt("discount")
+                    rst.getDouble("description")
             ));
         }
         return list;
     }
 
     @Override
-    public Optional<Item> search(String field) throws SQLException {
-
-        if (field.startsWith("PR-")) {
-            ResultSet rst = CrudUtil.execute("SELECT * FROM item WHERE itemCode=?", field);
-            if (rst.next())
-                return Optional.of(new Item(
-                        rst.getString("itemCode"),
-                        rst.getString("description"),
-                        rst.getInt("remind"),
-                        rst.getDouble("utilPrice"),
-                        rst.getBoolean("status"),
-                        rst.getString("categoryId"),
-                        rst.getDate("date"),
-                        rst.getInt("recode"),
-                        rst.getInt("qty"),
-                        rst.getInt("discount")
-                ));
-        }
-        ResultSet rst = CrudUtil.execute("SELECT * FROM item WHERE description=?", field);
-        if (rst.next())
-            return Optional.of(new Item(
-                    rst.getString("itemCode"),
-                    rst.getString("description"),
-                    rst.getInt("remind"),
-                    rst.getDouble("utilPrice"),
-                    rst.getBoolean("status"),
-                    rst.getString("categoryId"),
-                    rst.getDate("date"),
-                    rst.getInt("recode"),
-                    rst.getInt("qty"),
-                    rst.getInt("discount")
-            ));
+    public Optional<Item> search(Integer integer) throws SQLException {
         return Optional.empty();
     }
+
 
     @Override
     public String generateID() throws SQLException {
         ResultSet resultSet = CrudUtil.execute("SELECT itemCode FROM item ORDER BY itemCode DESC LIMIT 1");
         if (resultSet.next())
-            return CreateNewId.generateId("PR-", resultSet.getString(1));
+            return CreateNewID.generateID("PR-", resultSet.getString(1));
 
-        return CreateNewId.generateId("PR-", null);
+        return CreateNewID.generateID("PR-", null);
     }
 
     @Override

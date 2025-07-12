@@ -1,6 +1,8 @@
 package com.icbt.billing.onlinebillingsystem.service;
 
 
+import com.icbt.billing.onlinebillingsystem.service.custom.impl.CustomerServiceImpl;
+import com.icbt.billing.onlinebillingsystem.service.custom.impl.ItemServiceImpl;
 
 public class ServiceFactory {
     private static ServiceFactory serviceFactory;
@@ -11,6 +13,9 @@ public class ServiceFactory {
     public SuperService getService(ServiceType serviceType){
         return switch (serviceType) {
             case CUSTOMER -> new CustomerServiceImpl();
+            case BILLING -> new CustomerServiceImpl();
+            case ITEM -> new ItemServiceImpl();
+            case USER -> new CustomerServiceImpl();
             default -> null;
         };
     }

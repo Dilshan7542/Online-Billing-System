@@ -1,6 +1,8 @@
 package com.icbt.billing.onlinebillingsystem.repo;
 
-import lk.ijse.hardware.entity.SuperEntity;
+
+
+import com.icbt.billing.onlinebillingsystem.entity.SuperEntity;
 
 import java.io.Serializable;
 import java.sql.SQLException;

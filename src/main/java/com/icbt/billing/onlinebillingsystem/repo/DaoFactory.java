@@ -1,6 +1,6 @@
 package com.icbt.billing.onlinebillingsystem.repo;
 
-import lk.ijse.hardware.dao.custom.impl.*;
+import com.icbt.billing.onlinebillingsystem.repo.custom.impl.ItemDAOImpl;
 
 public class DaoFactory {
     private static DaoFactory daoFactory;
@@ -10,8 +10,8 @@ public class DaoFactory {
     }
     public SuperDAO getDAO(DAOType daoType){
         switch (daoType) {
-            case CATEGORY:
-                return new CategoryDAOImpl();
+            case ITEM:
+                return new ItemDAOImpl();
             default:
                 return null;
 

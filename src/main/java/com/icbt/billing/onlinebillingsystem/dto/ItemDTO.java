@@ -13,4 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ItemDTO {
+    private int itemId;
+    private String itemName;
+    private double pricePerUnit;
 }
