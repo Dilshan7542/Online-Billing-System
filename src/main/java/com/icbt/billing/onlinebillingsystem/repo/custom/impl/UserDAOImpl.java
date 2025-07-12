@@ -1,8 +1,6 @@
 package com.icbt.billing.onlinebillingsystem.repo.custom.impl;
 
 import com.icbt.billing.onlinebillingsystem.entity.User;
-import com.icbt.billing.onlinebillingsystem.repo.DAOType;
-import com.icbt.billing.onlinebillingsystem.repo.DaoFactory;
 import com.icbt.billing.onlinebillingsystem.repo.custom.UserDAO;
 import com.icbt.billing.onlinebillingsystem.repo.util.CrudUtil;
 
@@ -22,11 +20,12 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean save(User entity) throws SQLException {
-       return CrudUtil.execute(
-               "INSERT INTO users(username, password) VALUES(?,?)",
-               entity.getUsername(),
-               entity.getPassword()
-       );
+        return CrudUtil.execute(
+                "INSERT INTO users(username, password,role) VALUES(?,?,?)",
+                entity.getUsername(),
+                entity.getPassword(),
+                entity.getRole().name()
+        );
     }
 
     @Override
@@ -55,13 +54,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
 
-
     @Override
     public boolean login(String username, String deviceId) throws SQLException {
         return CrudUtil.execute(
                 "UPDATE users SET device_id = ? WHERE username = ?",
-               deviceId,
-              username
+                deviceId,
+                username
         );
     }
 }
