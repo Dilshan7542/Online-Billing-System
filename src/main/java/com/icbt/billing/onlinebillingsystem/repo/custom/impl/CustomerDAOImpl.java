@@ -34,12 +34,8 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public Optional<Customer> search(Integer integer) throws SQLException {
+    public Optional<Customer> findByID(Integer integer) throws SQLException {
         return Optional.empty();
     }
 
-    @Override
-    public String generateID() throws SQLException {
-        return "";
-    }
 }

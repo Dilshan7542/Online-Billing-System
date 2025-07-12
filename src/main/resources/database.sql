@@ -1,8 +1,19 @@
-CREATE TABLE users (
-                       user_id INT AUTO_INCREMENT PRIMARY KEY,
-                       username VARCHAR(50) NOT NULL UNIQUE,
-                       password VARCHAR(100) NOT NULL
-);
+create table if not exists users
+(
+    user_id   int auto_increment primary key,
+    username  varchar(50)  not null,
+    password  varchar(100) not null,
+    device_id varchar(400) null,
+    token     text         null,
+    constraint username
+    unique (username),
+    constraint users_pk
+    unique (username),
+    constraint users_pk_2
+    unique (device_id)
+    );
+
+
 
 CREATE TABLE customers (
                            account_no INT PRIMARY KEY,

@@ -14,7 +14,7 @@ public interface CrudDAO <T extends SuperEntity,ID extends Serializable> extends
     boolean update(T entity)throws SQLException;
     boolean delete(ID id)throws SQLException;
     List<T> getAll()throws SQLException;
-    Optional<T> search(ID id)throws SQLException;
-    String generateID()throws SQLException;
+    Optional<T> findByID(ID id)throws SQLException;
+
 }
 
