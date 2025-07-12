@@ -1,6 +1,8 @@
 package com.icbt.billing.onlinebillingsystem.repo;
 
-import lk.ijse.hardware.entity.SuperEntity;
+
+
+import com.icbt.billing.onlinebillingsystem.entity.SuperEntity;
 
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -12,7 +14,7 @@ public interface CrudDAO <T extends SuperEntity,ID extends Serializable> extends
     boolean update(T entity)throws SQLException;
     boolean delete(ID id)throws SQLException;
     List<T> getAll()throws SQLException;
-    Optional<T> search(ID id)throws SQLException;
-    String generateID()throws SQLException;
+    Optional<T> findByID(ID id)throws SQLException;
+
 }
 

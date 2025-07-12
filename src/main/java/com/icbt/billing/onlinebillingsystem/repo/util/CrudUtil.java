@@ -7,7 +7,7 @@ import com.icbt.billing.onlinebillingsystem.db.DBConnection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DBUtil {
+public class CrudUtil {
     public static <T> T execute(String sql,Object... arg) throws SQLException {
         final PreparedStatement st = DBConnection.getInstance().getConnection().prepareStatement(sql);
         for (int i = 0; i < arg.length; i++) {

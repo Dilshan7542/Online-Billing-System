@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
  * @project : online-billing-system
  * @Day : 7/11/2025
  */
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class ItemDTO {
-    private int itemId;
-    private String itemName;
-    private double pricePerUnit;
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserDTO {
+    private int userId;
+    private String username;
+    private String password;
 }

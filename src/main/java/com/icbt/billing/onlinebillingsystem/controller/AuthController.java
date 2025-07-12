@@ -17,7 +17,9 @@ import java.io.IOException;
 public class AuthController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        req.setAttribute("message", "Welcome to the Test Page!");
+        req.getRequestDispatcher("/WEB-INF/views/post-login/test.jsp").forward(req, resp);
+
     }
 
     @Override

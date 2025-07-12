@@ -1,8 +1,11 @@
-package com.icbt.billing.onlinebillingsystem.dto;
+package com.icbt.billing.onlinebillingsystem.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author : Dilshan Maduranga
@@ -12,10 +15,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerDTO {
+public class Bill implements SuperEntity {
+    private int billId;
     private int accountNo;
-    private String name;
-    private String address;
-    private String phone;
+    private Date billDate;
     private int unitsConsumed;
+    private double amount;
 }

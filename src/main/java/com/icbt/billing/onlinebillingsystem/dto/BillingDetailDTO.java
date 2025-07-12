@@ -9,11 +9,13 @@ import lombok.NoArgsConstructor;
  * @project : online-billing-system
  * @Day : 7/11/2025
  */
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class ItemDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+public class BillingDetailDTO {
+    private int billItemId;
+    private int billId;
     private int itemId;
-    private String itemName;
-    private double pricePerUnit;
+    private int quantity;
+    private double totalPrice;
 }

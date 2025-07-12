@@ -1,4 +1,4 @@
-package com.icbt.billing.onlinebillingsystem.dto;
+package com.icbt.billing.onlinebillingsystem.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
  * @project : online-billing-system
  * @Day : 7/11/2025
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class ItemDTO {
-    private int itemId;
-    private String itemName;
-    private double pricePerUnit;
+public class User implements SuperEntity {
+    private int userId;
+    private String username;
+    private String password;
 }
