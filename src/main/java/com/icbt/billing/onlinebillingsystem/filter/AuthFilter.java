@@ -26,13 +26,13 @@ public class AuthFilter implements Filter {
 
         String authHeader = httpRequest.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            String token = authHeader.substring(7); // Extract token after "Bearer "
+            String token = authHeader.substring(7);
             try {
                 Claims claims = JwtUtil.validateToken(token);
                 String username = claims.getSubject();
-                // Optionally set username or claims as request attributes for downstream use
+
                 httpRequest.setAttribute("username", username);
-                chain.doFilter(request, response); // Proceed if token is valid
+                chain.doFilter(request, response);
             } catch (Exception e) {
                 httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or expired JWT token");
             }

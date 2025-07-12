@@ -14,7 +14,7 @@ import java.util.List;
  * @Day : 7/11/2025
  */
 public class CustomerServiceImpl implements CustomerService {
-    CustomerDAO customerDAO;
+   private CustomerDAO customerDAO;
     public CustomerServiceImpl() {
         CustomerDAO customerDAO = (CustomerDAO) DaoFactory.getInstance().getDAO(DAOType.CUSTOMER);
     }

@@ -4,5 +4,6 @@ public enum ServiceType {
     ITEM,
     CUSTOMER,
     BILLING,
-    USER
+    USER,
+    AUTH
 }

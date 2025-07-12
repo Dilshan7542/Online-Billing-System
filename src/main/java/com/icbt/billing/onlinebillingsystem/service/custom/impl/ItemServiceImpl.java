@@ -12,10 +12,7 @@ import java.util.List;
  * @Day : 7/11/2025
  */
 public class ItemServiceImpl implements ItemService {
-    @Override
-    public boolean updateQtyAndRecodeGrn(String itemCode, int qty) throws SQLException {
-        return false;
-    }
+
 
     @Override
     public boolean removeQty(String itemCode, int qty) throws SQLException {
