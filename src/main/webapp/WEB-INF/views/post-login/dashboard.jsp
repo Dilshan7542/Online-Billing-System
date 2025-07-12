@@ -7,7 +7,9 @@
        href="${pageContext.servletContext.contextPath}/assets/lib/boostrap/css/bootstrap.min.css">
  <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/assets/style/util.css">
  <style>
-
+     .maunuBtn>.active{
+         background-color: #0a58ca;
+     }
  </style>
 </head>
 <body>
@@ -18,7 +20,7 @@
     <h1 class="m-0 text-center" id="headerTitle">Customer Management</h1>
    </div>
    <div class="p-2">
-    <button class="btn btn-sm btn-outline-secondary">Logout</button>
+    <a class="btn btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/">Logout</a>
    </div>
   </nav>
  </header>
@@ -36,15 +38,14 @@
   </section>
  </main>
 </main>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script src="${pageContext.servletContext.contextPath}/assets/lib/boostrap/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+<script src="${pageContext.servletContext.contextPath}/assets/lib/JQuery/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.servletContext.contextPath}/assets/lib/boostrap/js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function () {
         $("#maunuBtn>button").click(function () {
+            $("#maunuBtn>button").removeClass("active");
             const button = $(this);
+            button.addClass("active")
             console.log(button.data("url"));
             $("#content-area").load("/api/v1/auth");
             $("#headerTitle").text(button.text())

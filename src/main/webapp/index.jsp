@@ -14,7 +14,7 @@
     <div class="card-body">
      <h2 class="card-title text-center mb-4">Login</h2>
      <!-- Login Form -->
-     <form action="${pageContext.request.contextPath}/login" method="post">
+     <form action="${pageContext.request.contextPath}/dashboard" method="get">
       <div class="mb-3">
        <label for="username" class="form-label">Username</label>
        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>

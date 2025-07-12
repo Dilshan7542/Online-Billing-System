@@ -16,5 +16,4 @@ public interface ItemService extends SuperService {
     boolean deleteItem(String id)throws SQLException;
     List<ItemDTO> getAllItem()throws SQLException;
     ItemDTO searchItem(String id)throws SQLException;
-    String generateItemID()throws SQLException;
 }

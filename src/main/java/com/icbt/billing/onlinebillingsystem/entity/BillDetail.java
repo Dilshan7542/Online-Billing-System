@@ -3,6 +3,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @author : Dilshan Maduranga
  * @project : online-billing-system
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BillDetail {
+public class BillDetail implements SuperEntity {
     private int billItemId;
     private int billId;
     private int itemId;
