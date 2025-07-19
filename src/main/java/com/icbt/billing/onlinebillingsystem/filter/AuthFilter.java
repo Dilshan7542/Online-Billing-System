@@ -13,7 +13,9 @@ import java.io.IOException;
  * @project : online-billing-system
  * @Day : 7/10/2025
  */
+
 public class AuthFilter implements Filter {
+    String [] whiteList={"/login","api/v1/"};
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
@@ -36,8 +38,8 @@ public class AuthFilter implements Filter {
             } catch (Exception e) {
                 httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or expired JWT token");
             }
-        } else {
-            httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Missing or invalid Authorization header");
+        } else{
+            chain.doFilter(request, response);
         }
     }
     

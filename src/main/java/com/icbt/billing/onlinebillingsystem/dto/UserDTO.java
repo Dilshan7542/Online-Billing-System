@@ -1,5 +1,6 @@
 package com.icbt.billing.onlinebillingsystem.dto;
 
+import com.icbt.billing.onlinebillingsystem.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,7 @@ public class UserDTO {
     private int userId;
     private String username;
     private String password;
+    private String deviceId;
+    private String token;
+    private Role role;
 }
