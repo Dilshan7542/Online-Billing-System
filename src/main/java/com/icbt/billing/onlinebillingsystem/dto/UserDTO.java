@@ -20,4 +20,5 @@ public class UserDTO {
     private String deviceId;
     private String token;
     private Role role;
+
 }

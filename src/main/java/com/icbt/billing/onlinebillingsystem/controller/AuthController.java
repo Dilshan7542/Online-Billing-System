@@ -2,6 +2,9 @@ package com.icbt.billing.onlinebillingsystem.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.icbt.billing.onlinebillingsystem.dto.UserDTO;
+import com.icbt.billing.onlinebillingsystem.service.ServiceFactory;
+import com.icbt.billing.onlinebillingsystem.service.ServiceType;
+import com.icbt.billing.onlinebillingsystem.service.custom.AuthService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,6 +21,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/api/v1/auth")
 public class AuthController extends HttpServlet {
     ObjectMapper mapper = new ObjectMapper();
+    private final AuthService authService =(AuthService) ServiceFactory.getInstance().getService(ServiceType.AUTH);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("message", "Welcome to the Test Page!");
@@ -32,9 +36,10 @@ public class AuthController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
         UserDTO userDTO = mapper.readValue(req.getInputStream(), UserDTO.class);
-        super.doPost(req, resp);
+        System.out.println(userDTO);
+        this.authService.login(userDTO);
+        req.setAttribute("message", "Welcome to the Test Page!");
     }
 
     @Override

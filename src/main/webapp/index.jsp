@@ -14,7 +14,7 @@
     <div class="card-body">
      <h2 class="card-title text-center mb-4">Login</h2>
      <!-- Login Form -->
-     <form action="${pageContext.request.contextPath}/dashboard" method="get">
+     <form id="loginForm">
       <div class="mb-3">
        <label for="username" class="form-label">Username</label>
        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
@@ -36,9 +36,34 @@
   </div>
  </div>
 </div>
-
+<script src="${pageContext.servletContext.contextPath}/assets/lib/JQuery/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.servletContext.contextPath}/assets/lib/boostrap/js/bootstrap.js" ></script>
+<script>
+ $('#loginForm').on('submit', function(e) {
+  e.preventDefault(); // Prevent default form submission
 
+  const formData = new FormData(this);
+  const jsonData = {};
+  formData.forEach((value, key) => {
+   jsonData[key] = value;
+  });
+
+  $.ajax({
+   url: ${pageContext.servletContext.contextPath}'/api/v1/auth',
+   type: 'POST',
+   contentType: 'application/json',
+   data:JSON.stringify(jsonData),
+   success: function(response) {
+    console.log('Login successful:', response);
+    window.location.href=${pageContext.servletContext.contextPath}'/dashboard';
+   },
+   error: function(err) {
+    console.error('Login failed:', err);
+   }
+  });
+ });
+
+</script>
 
 </body>
 </html>
