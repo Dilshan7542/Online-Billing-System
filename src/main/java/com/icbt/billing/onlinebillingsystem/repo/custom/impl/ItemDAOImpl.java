@@ -36,7 +36,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 
     @Override
-    public List<Item> getAll() throws SQLException {
+    public List<Item> findAll() throws SQLException {
         ResultSet rst = CrudUtil.execute("SELECT * FROM items");
         ArrayList<Item> list = new ArrayList<>();
         while (rst.next()) {

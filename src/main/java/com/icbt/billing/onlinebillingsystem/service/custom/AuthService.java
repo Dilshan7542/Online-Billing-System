@@ -12,5 +12,5 @@ import java.util.List;
  * @Day : 7/13/2025
  */
 public interface AuthService {
-    boolean login(UserDTO request);
+    Object login(UserDTO request);
 }
