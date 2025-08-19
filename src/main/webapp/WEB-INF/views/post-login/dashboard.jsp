@@ -31,6 +31,7 @@
     <button class="btn btn-outline-primary" data-url="/user">User Management</button>
     <button class="btn btn-outline-primary" data-url="/bill">Bill Management</button>
     <button class="btn btn-outline-primary" data-url="/api/v1/auth">Customer Management</button>
+    <button class="btn btn-outline-primary" data-url="/api/v1/auth">Item Management</button>
    </section>
   </section>
   <section class="col-10" id="content-area">
@@ -47,7 +48,7 @@
             const button = $(this);
             button.addClass("active")
             console.log(button.data("url"));
-            $("#content-area").load("/api/v1/auth");
+            $("#content-area").load("${pageContext.servletContext.contextPath}/api/v1/auth");
             $("#headerTitle").text(button.text())
         });
     });

@@ -26,11 +26,8 @@
       <div class="d-grid">
        <button type="submit" class="btn btn-primary">Login</button>
       </div>
+      <i class="text-negative-700 d-none" id="invalidCredential">invalid credential</i>
      </form>
-     <!-- Link to Home -->
-     <div class="text-center mt-3">
-      <a href="${pageContext.request.contextPath}/index.jsp" class="text-decoration-none">Back to Home</a>
-     </div>
     </div>
    </div>
   </div>
@@ -61,6 +58,7 @@
    },
    error: function(err) {
     console.error('Login failed:', err);
+    $('#invalidCredential').removeClass("d-none");
    }
   });
  });
