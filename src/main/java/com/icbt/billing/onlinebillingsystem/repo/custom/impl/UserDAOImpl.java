@@ -74,10 +74,10 @@ public class UserDAOImpl implements UserDAO {
         ResultSet result = CrudUtil.execute("SELECT * FROM users WHERE username = ?", username);
         if (result.next()) {
             return Optional.of(new User(
-                    result.getInt("userId"),
+                    result.getInt("user_id"),
                     result.getString("username"),
                     result.getString("password"),
-                    result.getString("deviceId"),
+                    result.getString("device_id"),
                     result.getString("token"),
                     Role.valueOf(result.getString("role").toUpperCase())
             ));

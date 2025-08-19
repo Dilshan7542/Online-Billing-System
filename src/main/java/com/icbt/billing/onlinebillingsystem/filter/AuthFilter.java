@@ -39,6 +39,7 @@ public class AuthFilter implements Filter {
                 httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or expired JWT token");
             }
         } else{
+            System.out.println("No AuthHeader");
             chain.doFilter(request, response);
         }
     }

@@ -47,15 +47,17 @@
   formData.forEach((value, key) => {
    jsonData[key] = value;
   });
+  const data = JSON.stringify(jsonData);
+  console.log(data);
 
   $.ajax({
-   url: ${pageContext.servletContext.contextPath}'/api/v1/auth',
+   url: '${pageContext.servletContext.contextPath}/api/v1/auth',
    type: 'POST',
    contentType: 'application/json',
-   data:JSON.stringify(jsonData),
+   data:data,
    success: function(response) {
     console.log('Login successful:', response);
-    window.location.href=${pageContext.servletContext.contextPath}'/dashboard';
+    window.location.href='${pageContext.servletContext.contextPath}/dashboard';
    },
    error: function(err) {
     console.error('Login failed:', err);

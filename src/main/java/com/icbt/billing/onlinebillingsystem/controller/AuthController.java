@@ -21,7 +21,17 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/api/v1/auth")
 public class AuthController extends HttpServlet {
     ObjectMapper mapper = new ObjectMapper();
-    private final AuthService authService =(AuthService) ServiceFactory.getInstance().getService(ServiceType.AUTH);
+    private final AuthService authService ;
+
+    public AuthController() {
+        authService=(AuthService) ServiceFactory.getInstance().getService(ServiceType.AUTH);
+        if(authService==null){
+            System.out.println("Auth Service not found");
+        }else {
+            System.out.println("Auth Service found");
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("message", "Welcome to the Test Page!");
