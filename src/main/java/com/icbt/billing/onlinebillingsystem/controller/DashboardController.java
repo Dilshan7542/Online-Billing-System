@@ -13,7 +13,7 @@ import java.io.IOException;
  * @project : online-billing-system
  * @Day : 7/11/2025
  */
-@WebServlet("/dashboard")
+@WebServlet("/api/v1/dashboard")
 public class DashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

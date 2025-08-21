@@ -34,9 +34,12 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean update(User entity) throws SQLException {
         return CrudUtil.execute(
-                "UPDATE users SET password = ? WHERE user_id = ?",
+                "UPDATE users SET username=?,password=?,device_id=?,token=?,role=? WHERE user_id =?",
                 entity.getUsername(),
                 entity.getPassword(),
+                entity.getDeviceId(),
+                entity.getToken(),
+                entity.getRole().name(),
                 entity.getUserId()
         );
     }

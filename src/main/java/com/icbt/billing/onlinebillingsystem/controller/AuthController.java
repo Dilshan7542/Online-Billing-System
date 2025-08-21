@@ -5,6 +5,7 @@ import com.icbt.billing.onlinebillingsystem.dto.UserDTO;
 import com.icbt.billing.onlinebillingsystem.service.ServiceFactory;
 import com.icbt.billing.onlinebillingsystem.service.ServiceType;
 import com.icbt.billing.onlinebillingsystem.service.custom.AuthService;
+import com.icbt.billing.onlinebillingsystem.util.ResponseEntity;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import java.io.IOException;
  * @project : online-billing-system
  * @Day : 7/10/2025
  */
-@WebServlet(urlPatterns = "/api/v1/auth")
+@WebServlet(urlPatterns = "/api/v1/auth/*")
 public class AuthController extends HttpServlet {
     ObjectMapper mapper = new ObjectMapper();
     private final AuthService authService ;
@@ -46,10 +47,22 @@ public class AuthController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String reqRequestURI = req.getPathInfo();
+        switch (reqRequestURI) {
+            case "/login" -> this.login(req,resp);
+            case "/register" -> this.register(req,resp);
+            default -> throw  new ServletException("Invalid Request");
+        }
+    }
+    private void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         UserDTO userDTO = mapper.readValue(req.getInputStream(), UserDTO.class);
         System.out.println(userDTO);
-        this.authService.login(userDTO);
+        resp.setContentType("application/json");
+        resp.getWriter().write(this.authService.login(userDTO));
         req.setAttribute("message", "Welcome to the Test Page!");
+    }
+    private void register(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
     }
 
     @Override

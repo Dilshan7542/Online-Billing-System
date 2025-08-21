@@ -3,6 +3,7 @@ package com.icbt.billing.onlinebillingsystem.filter;
 import com.icbt.billing.onlinebillingsystem.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -15,7 +16,7 @@ import java.io.IOException;
  */
 
 public class AuthFilter implements Filter {
-    String [] whiteList={"/login","api/v1/"};
+    String [] WHITE_LIST={"/api/v1/auth/login"};
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
@@ -25,7 +26,13 @@ public class AuthFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-
+        String path = httpRequest.getRequestURI();
+       /* for (String white : WHITE_LIST) {
+            if (path.startsWith(white)) {
+                chain.doFilter(request, response);
+                return;
+            }
+        }*/
         String authHeader = httpRequest.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);

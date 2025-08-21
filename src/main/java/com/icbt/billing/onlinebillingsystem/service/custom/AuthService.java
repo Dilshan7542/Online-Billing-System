@@ -14,5 +14,5 @@ import java.util.List;
  * @Day : 7/13/2025
  */
 public interface AuthService extends SuperService {
-    ResponseEntity<?> login(UserDTO request);
+    String login(UserDTO request);
 }

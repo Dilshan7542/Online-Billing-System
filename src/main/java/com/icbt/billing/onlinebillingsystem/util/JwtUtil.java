@@ -14,11 +14,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JwtUtil {
-    private static final String SECRET_KEY = "BECB93AB1B1D5847A5A8657C8EE28";
+    private static final String SECRET_KEY = "BECB93AB1B1D5847A5A8657C8ESDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFE28";
     private static final long EXPIRATION_TIME = 1000 * 24;
 
     // Generate JWT token
-    public static String generateToken(String username, Map<String, Object> claims) {
+    public static String generateToken(String username, Map<String, String> claims) {
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(username)

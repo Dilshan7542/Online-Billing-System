@@ -48,13 +48,14 @@
   console.log(data);
 
   $.ajax({
-   url: '${pageContext.servletContext.contextPath}/api/v1/auth',
+   url: '${pageContext.servletContext.contextPath}/api/v1/auth/login',
    type: 'POST',
    contentType: 'application/json',
    data:data,
    success: function(response) {
-    console.log('Login successful:', response);
-    window.location.href='${pageContext.servletContext.contextPath}/dashboard';
+    console.log('Login successful:');
+    console.log(response);
+  window.location.href='${pageContext.servletContext.contextPath}/api/v1/dashboard';
    },
    error: function(err) {
     console.error('Login failed:', err);
