@@ -29,7 +29,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public List<Customer> getAll() throws SQLException {
+    public List<Customer> findAll() throws SQLException {
         return List.of();
     }
 

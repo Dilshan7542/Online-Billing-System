@@ -14,7 +14,7 @@
     <div class="card-body">
      <h2 class="card-title text-center mb-4">Login</h2>
      <!-- Login Form -->
-     <form action="${pageContext.request.contextPath}/dashboard" method="get">
+     <form id="loginForm">
       <div class="mb-3">
        <label for="username" class="form-label">Username</label>
        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
@@ -26,19 +26,45 @@
       <div class="d-grid">
        <button type="submit" class="btn btn-primary">Login</button>
       </div>
+      <i class="text-negative-700 d-none" id="invalidCredential">invalid credential</i>
      </form>
-     <!-- Link to Home -->
-     <div class="text-center mt-3">
-      <a href="${pageContext.request.contextPath}/index.jsp" class="text-decoration-none">Back to Home</a>
-     </div>
     </div>
    </div>
   </div>
  </div>
 </div>
-
+<script src="${pageContext.servletContext.contextPath}/assets/lib/JQuery/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.servletContext.contextPath}/assets/lib/boostrap/js/bootstrap.js" ></script>
+<script>
+ $('#loginForm').on('submit', function(e) {
+  e.preventDefault(); // Prevent default form submission
 
+  const formData = new FormData(this);
+  const jsonData = {};
+  formData.forEach((value, key) => {
+   jsonData[key] = value;
+  });
+  const data = JSON.stringify(jsonData);
+  console.log(data);
+
+  $.ajax({
+   url: '${pageContext.servletContext.contextPath}/api/v1/auth/login',
+   type: 'POST',
+   contentType: 'application/json',
+   data:data,
+   success: function(response) {
+    console.log('Login successful:');
+    console.log(response);
+  window.location.href='${pageContext.servletContext.contextPath}/api/v1/dashboard';
+   },
+   error: function(err) {
+    console.error('Login failed:', err);
+    $('#invalidCredential').removeClass("d-none");
+   }
+  });
+ });
+
+</script>
 
 </body>
 </html>

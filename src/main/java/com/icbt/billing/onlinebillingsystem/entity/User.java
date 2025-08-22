@@ -16,4 +16,7 @@ public class User implements SuperEntity {
     private int userId;
     private String username;
     private String password;
+    private String deviceId;
+    private String token;
+    private Role role;
 }

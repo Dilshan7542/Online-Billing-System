@@ -16,6 +16,7 @@ public class CrudUtil {
         if(sql.startsWith("SELECT") | sql.startsWith("select") | sql.startsWith("Select")){
             return (T)st.executeQuery();
         }
-        return (T)(Boolean)(st.executeUpdate()>1);
+        System.out.println("sssss : "+st.executeUpdate());
+        return (T)(Boolean)(st.executeUpdate()>0);
     }
 }

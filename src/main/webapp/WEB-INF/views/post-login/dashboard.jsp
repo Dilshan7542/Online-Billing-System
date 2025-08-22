@@ -28,9 +28,12 @@
   <section class="col-2 d-flex flex-column mh-100 border-end">
    <section class="w-100 bg-base-1" style="height: 100px"></section>
    <section class="w-100 d-flex flex-column flex-grow-1 justify-content-center gap-1 p-2" id="maunuBtn">
-    <button class="btn btn-outline-primary" data-url="/user">User Management</button>
-    <button class="btn btn-outline-primary" data-url="/bill">Bill Management</button>
-    <button class="btn btn-outline-primary" data-url="/api/v1/auth">Customer Management</button>
+    <button class="btn btn-outline-primary" data-url="/api/v1/user">User Management</button>
+    <button class="btn btn-outline-primary" data-url="/api/v1/item">Item Management</button>
+    <button class="btn btn-outline-primary" data-url="/api/v1/book">Book Management</button>
+    <button class="btn btn-outline-primary" data-url="/api/v1/bill">Bill Management</button>
+    <button class="btn btn-outline-primary" data-url="/api/v1/customer">Customer Management</button>
+    <button class="btn btn-outline-primary" data-url="/api/v1/item">Item Management</button>
    </section>
   </section>
   <section class="col-10" id="content-area">
@@ -47,7 +50,7 @@
             const button = $(this);
             button.addClass("active")
             console.log(button.data("url"));
-            $("#content-area").load("/api/v1/auth");
+            $("#content-area").load("${pageContext.servletContext.contextPath}"+button.data("url"));
             $("#headerTitle").text(button.text())
         });
     });

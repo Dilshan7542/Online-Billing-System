@@ -1,6 +1,7 @@
 package com.icbt.billing.onlinebillingsystem.service;
 
 
+import com.icbt.billing.onlinebillingsystem.service.custom.impl.AuthServiceImpl;
 import com.icbt.billing.onlinebillingsystem.service.custom.impl.CustomerServiceImpl;
 import com.icbt.billing.onlinebillingsystem.service.custom.impl.ItemServiceImpl;
 
@@ -16,6 +17,7 @@ public class ServiceFactory {
             case BILLING -> new CustomerServiceImpl();
             case ITEM -> new ItemServiceImpl();
             case USER -> new CustomerServiceImpl();
+            case AUTH -> new AuthServiceImpl();
             default -> null;
         };
     }
