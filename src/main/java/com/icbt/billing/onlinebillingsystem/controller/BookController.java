@@ -13,7 +13,7 @@ import java.io.IOException;
  * @project : online-billing-system
  * @Day : 7/10/2025
  */
-@WebServlet(urlPatterns = "/api/v1/book")
+@WebServlet(urlPatterns = "/api/v1/book/*")
 public class BookController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

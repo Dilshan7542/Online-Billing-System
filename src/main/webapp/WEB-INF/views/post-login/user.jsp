@@ -5,29 +5,19 @@
             <form action="">
                 <section class="row rounded-4 border p-2 pb-5">
                     <div class="col-6 p-1">
-                        <label for="accountNo" class="form-label">Account No</label>
-                        <input type="text" class="form-control" id="accountNo"
-                               placeholder="Account No">
+                        <label for="username" class="form-label">Account No</label>
+                        <input type="text" class="form-control" id="username"
+                               placeholder="Username">
                     </div>
                     <div class="col-6 p-1">
-                        <label for="customerName" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="customerName"
-                               placeholder="Name">
+                        <label for="password" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="password"
+                               placeholder="Password">
                     </div>
                     <div class="col-6 p-1">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address"
-                               placeholder="Address">
-                    </div>
-                    <div class="col-6 p-1">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone"
-                               placeholder="Phone">
-                    </div>
-                    <div class="col-6 p-1">
-                        <label for="unitsConsumed" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="unitsConsumed"
-                               placeholder="Units Consumed">
+                        <label for="role" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="role"
+                               placeholder="Role">
                     </div>
                     <div class="col-12 p-1">
                         <div>
@@ -45,7 +35,6 @@
                     <thead>
                     <tr>
                         <th scope="col">#Id</th>
-                        <th scope="col">userId</th>
                         <th scope="col">username</th>
                         <th scope="col">password</th>
                         <th scope="col">deviceId</th>
