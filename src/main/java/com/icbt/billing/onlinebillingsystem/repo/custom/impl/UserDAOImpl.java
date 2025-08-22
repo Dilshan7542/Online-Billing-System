@@ -45,8 +45,8 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean delete(Integer integer) throws SQLException {
-        return false;
+    public boolean delete(Integer userId) throws SQLException {
+        return CrudUtil.execute("DELETE FROM users WHERE user_id = ?", userId);
     }
 
     @Override
@@ -67,8 +67,8 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Optional<User> findByID(Integer integer) throws SQLException {
-        return Optional.empty();
+    public Optional<User> findByID(Integer id) throws SQLException {
+        return null;
     }
 
 

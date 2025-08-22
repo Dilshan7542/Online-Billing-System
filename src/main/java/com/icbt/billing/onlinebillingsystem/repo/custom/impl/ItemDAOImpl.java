@@ -26,12 +26,16 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public boolean update(Item entity) throws SQLException {
-        return false;
+        return CrudUtil.execute(
+                "UPDATE items SET item_name = ?, price_per_unit = ? WHERE item_id = ?",
+                entity.getItemName(),
+                entity.getPricePerUnit(),
+                entity.getItemId());
     }
 
     @Override
-    public boolean delete(Integer integer) throws SQLException {
-        return false;
+    public boolean delete(Integer itemId) throws SQLException {
+        return CrudUtil.execute("DELETE FROM items WHERE item_id = ?", itemId);
     }
 
 
