@@ -17,6 +17,6 @@ import java.io.IOException;
 public class DashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/post-login/dashboard.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/post-login/post-login.jsp").forward(req, resp);
     }
 }

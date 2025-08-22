@@ -11,13 +11,13 @@ import java.util.List;
  * @Day : 7/11/2025
  */
 public interface CustomerService extends SuperService {
-    boolean saveCustomer(CustomerDTO request);
+    String saveCustomer(CustomerDTO request);
 
-    boolean updateCustomer(CustomerDTO request);
+    String updateCustomer(CustomerDTO request);
 
-    boolean deleteCustomer(String id);
+    String deleteCustomer(int id);
 
     List<CustomerDTO> getAllCustomer();
 
-    CustomerDTO searchCustomer(String id);
+    CustomerDTO searchCustomer(int id);
 }

@@ -61,8 +61,12 @@
                         <td>5</td>
                         <td>
                             <div class="d-flex gap-1">
-                                <button class="btn btn-sm btn-danger">delete</button>
-                                <button class="btn btn-sm btn-primary">edit</button>
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal">delete
+                                </button>
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#editModal">edit
+                                </button>
                             </div>
                         </td>
                     </tr>

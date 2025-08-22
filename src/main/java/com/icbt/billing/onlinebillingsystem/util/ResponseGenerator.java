@@ -13,4 +13,12 @@ public class ResponseGenerator {
                 throw new RuntimeException(e);
         }
     }
+    public static String generateErrorResponse(Object body,String message) {
+        try {
+            return mapper.writeValueAsString(new ResponseEntity<>("001",message,body));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

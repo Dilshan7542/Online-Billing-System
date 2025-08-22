@@ -16,7 +16,8 @@ create table if not exists users
 
 
 CREATE TABLE customers (
-                           account_no INT PRIMARY KEY,
+                           id INT PRIMARY KEY,
+                           account_no VARCHAR(250) UNIQUE ,
                            name VARCHAR(100) NOT NULL,
                            address TEXT,
                            phone VARCHAR(20),

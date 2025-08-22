@@ -18,7 +18,7 @@ public class BillController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("message", "Welcome to the Test Page!");
-        req.getRequestDispatcher("/WEB-INF/views/post-login/bill.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/post-login/components/bill.jsp").forward(req, resp);
 
     }
 

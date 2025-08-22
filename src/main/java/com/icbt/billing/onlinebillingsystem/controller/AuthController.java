@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * @author : Dilshan Maduranga
@@ -26,17 +27,23 @@ public class AuthController extends HttpServlet {
 
     public AuthController() {
         authService=(AuthService) ServiceFactory.getInstance().getService(ServiceType.AUTH);
-        if(authService==null){
-            System.out.println("Auth Service not found");
-        }else {
-            System.out.println("Auth Service found");
-        }
+    }
+ /*   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+
+        // Hello
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + message + "123</h1>");
+        out.println("</body></html>");
     }
 
+*/
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("message", "Welcome to the Test Page!");
-        req.getRequestDispatcher("/WEB-INF/views/post-login/customer.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/post-login/components/customer.jsp").forward(req, resp);
 
     }
 

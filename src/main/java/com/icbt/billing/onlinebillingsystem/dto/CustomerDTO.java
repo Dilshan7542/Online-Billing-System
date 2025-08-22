@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerDTO {
-    private int accountNo;
+    private int id;
+    private String accountNo;
     private String name;
     private String address;
     private String phone;

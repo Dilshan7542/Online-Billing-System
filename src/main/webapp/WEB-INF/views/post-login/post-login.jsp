@@ -43,7 +43,13 @@
 </main>
 <script src="${pageContext.servletContext.contextPath}/assets/lib/JQuery/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.servletContext.contextPath}/assets/lib/boostrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="${pageContext.servletContext.contextPath}/assets/js/book.js"></script>
+<script src="${pageContext.servletContext.contextPath}/assets/js/customer.js"></script>
+<script src="${pageContext.servletContext.contextPath}/assets/js/item.js"></script>
+<script src="${pageContext.servletContext.contextPath}/assets/js/user.js"></script>
 <script>
+ let modalCallBackFn = () => null; // modal call back fn
     $(document).ready(function () {
         $("#maunuBtn>button").click(function () {
             $("#maunuBtn>button").removeClass("active");
@@ -55,5 +61,7 @@
         });
     });
 </script>
+
+
 </body>
 </html>
