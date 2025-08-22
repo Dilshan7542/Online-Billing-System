@@ -68,7 +68,28 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public Optional<User> findByID(Integer id) throws SQLException {
-        return null;
+        final String sql = "SELECT * FROM users WHERE user_id = ?";
+
+        ResultSet rs = null;
+        try {
+            rs = CrudUtil.execute(sql, id); // returns ResultSet for SELECT
+            if (rs.next()) {
+                User u = new User();
+                u.setUserId(rs.getInt("user_id"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password")); // hashed in DB
+                u.setDeviceId(rs.getString("device_id"));
+                u.setToken(rs.getString("token"));
+                u.setRole(Role.valueOf(rs.getString("role").toUpperCase()));
+                return Optional.of(u);
+            }
+            return Optional.empty();
+        } finally {
+            // only closing ResultSet (per your instruction)
+            if (rs != null) {
+                try { rs.close(); } catch (SQLException ignore) {}
+            }
+        }
     }
 
 

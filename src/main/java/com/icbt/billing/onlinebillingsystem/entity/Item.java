@@ -15,5 +15,6 @@ import lombok.NoArgsConstructor;
 public class Item implements SuperEntity{
     private int itemId;
     private String itemName;
+    private int qty;
     private double pricePerUnit;
 }
